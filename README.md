@@ -19,5 +19,5 @@
 <p>NOTE: Permissions are disabled by default, see the "config.yml" file to enable permissions</p>
 
 <h2>Images</h2>
-<img src="https://i.imgur.com/q1eqhyZ.gif" />
-<img src="https://i.imgur.com/urld75e.gif" />
+<img src="https://raw.githubusercontent.com/ArtSna/ToolSwap/refs/heads/main/docs/imgs/ToolSwap%20-%20Gif%201.gif" />
+<img src="https://raw.githubusercontent.com/ArtSna/ToolSwap/refs/heads/main/docs/imgs/ToolSwap%20-%20Gif%202.gif" />
