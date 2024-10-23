@@ -1,11 +1,13 @@
 package xyz.artsna.toolswap.bukkit;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import xyz.artsna.toolswap.api.events.PlayerSwapToolEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,10 @@ public class SwapHandler {
     public void handleSwap(@NotNull Player player, ItemStack newTool) {
         var items = player.getInventory().getContents();
         var oldTool = player.getInventory().getItemInMainHand();
+
+        PlayerSwapToolEvent event = new PlayerSwapToolEvent(player, oldTool, newTool);
+        Bukkit.getPluginManager().callEvent(event);
+        if(event.isCancelled()) return;
 
         //Gets newTool index, sets oldTool to the newTool index and put the newTool in the hand
         for(int i = 0; i < items.length; i++) {
