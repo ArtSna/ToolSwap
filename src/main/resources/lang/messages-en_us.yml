@@ -1,0 +1,27 @@
+errors:
+  profile-error: "&cPlease, renter on server and try again."
+  no-permission-feature: "&cYou don't have permission to use this feature."
+views:
+  settings:
+    title: "Tool Swap Settings"
+    buttons:
+      tool-swap-toggle:
+        display-name: "&fToggle Tool Swap"
+        lore:
+          - "&7Status: %status%"
+        status:
+          enabled: "&aEnabled"
+          disabled: "&cDisabled"
+        actions:
+          enabled: "&aTool Swap is now enabled."
+          disabled: "&cTool Swap is now disabled."
+      prefer-silk-toggle:
+        display-name: "&fPrefer Silk Touch"
+        lore:
+          - "&7Status: %status%"
+        status:
+          enabled: "&aEnabled"
+          disabled: "&cDisabled"
+        actions:
+          enabled: "&aPrefer Silk Tools settings is now enabled"
+          disabled: "&cPrefer Silk Tools settings is now disabled."
