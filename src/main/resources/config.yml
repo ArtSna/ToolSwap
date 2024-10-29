@@ -1,6 +1,34 @@
+# Enable debug mode for more verbose output.
+# This will log a lot of information to the console.
+debug: false
+
+databases:
+  main: # Used for swap configuration and others
+    #type: 'MYSQL' #Availables: [MYSQL, POSTGRESQL, SQLITE]
+    #address: 'localhost'
+    #port: 3306
+    #username: 'root'
+    #password: ''
+    #options: '?useUnicode=true&characterEncoding=utf8&autoreconnect=true'
+    #see more at: https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-configuration-properties.html
+    type: 'SQLITE'
+    file-name: "%plugin_dir%/database.db"
+  lang: # Used for language system.
+    type: 'SQLITE'
+    file-name: "%server_plugins_dir%/locale-api/lang.db"
+
+options:
+  default-swap-enabled: true
+  default-prefer-silk-enabled: false
+
 permissions:
-  use: 'none' #'toolswap.use'
+  swap: 'none' #'toolswap.swap'
   prefer-silk: 'none' #'toolswap.prefer-silk'
+
+messenger:
+  fallback-locale: 'en_us'
+  messages-directory: 'lang/messages-%locale%.yml'
+
 interactions:
   pickaxe:
     - HOPPER

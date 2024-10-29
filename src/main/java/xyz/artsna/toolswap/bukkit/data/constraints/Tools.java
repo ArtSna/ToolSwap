@@ -1,9 +1,10 @@
-package xyz.artsna.toolswap.bukkit;
+package xyz.artsna.toolswap.bukkit.data.constraints;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import xyz.artsna.toolswap.bukkit.data.config.Config;
 
 import java.util.Arrays;
 
@@ -24,23 +25,23 @@ public class Tools {
         }
 
         public static @Nullable ToolType getByBlockMaterial(@NotNull Config config, Material material) {
-            if(config.getPickaxeInteractions().contains(material))
+            if(config.getInteractions().pickaxe().contains(material))
                 return PICKAXE;
-            else if(config.getAxeInteractions().contains(material))
+            else if(config.getInteractions().axe().contains(material))
                 return AXE;
-            else if(config.getShovelInteractions().contains(material))
+            else if(config.getInteractions().shovel().contains(material))
                 return SHOVEL;
-            else if(config.getHoeInteractions().contains(material))
+            else if(config.getInteractions().hoe().contains(material))
                 return HOE;
-            else if(config.getShearsInteractions().contains(material))
+            else if(config.getInteractions().shears().contains(material))
                 return SHEARS;
             else
                 return null;
         }
     }
 
-    public static boolean compareHigher(@NotNull ToolType type, ItemStack item1, ItemStack item2) {
-        return switch (type) {
+    public static int compare(@NotNull ToolType type, ItemStack item1, ItemStack item2) {
+        var res = switch (type) {
             case PICKAXE -> {
                 var materials = Arrays.asList(pickaxes);
                 yield materials.indexOf(item1.getType()) > materials.indexOf(item2.getType());
@@ -57,8 +58,9 @@ public class Tools {
                 var materials = Arrays.asList(hoes);
                 yield materials.indexOf(item1.getType()) > materials.indexOf(item2.getType());
             }
-            default -> false;
+            default -> null;
         };
+        return res == null ? 0 : (res ? -1 : 1);
     }
 
     public static final Material[] pickaxes = new Material[] {

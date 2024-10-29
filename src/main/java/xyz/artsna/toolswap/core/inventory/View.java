@@ -50,11 +50,12 @@ public abstract class View implements InventoryHolder {
   protected void setContext(ViewContext context) {
     this.context = context;
   }
-  
+
   public abstract void onRender(ViewContext context);
-  
+
+  public void onOpen(ViewContext context) {}
   public void onClose(ViewContext context) {}
-  
+
   public void setItem(int slot, Button button) {
     this.buttons.put(slot, button);
     this.inventory.setItem(slot, button);
@@ -71,6 +72,7 @@ public abstract class View implements InventoryHolder {
   
   public void open(Player player) {
     setContext(new ViewContext(player, this));
+    onOpen(context);
     render();
     player.openInventory(getInventory());
   }

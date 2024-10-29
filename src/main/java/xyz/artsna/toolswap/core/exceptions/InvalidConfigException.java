@@ -1,4 +1,4 @@
-package xyz.artsna.toolswap.bukkit.exceptions;
+package xyz.artsna.toolswap.core.exceptions;
 
 public class InvalidConfigException extends  RuntimeException {
 

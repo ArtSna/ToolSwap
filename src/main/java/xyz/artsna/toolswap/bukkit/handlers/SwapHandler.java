@@ -1,4 +1,4 @@
-package xyz.artsna.toolswap.bukkit;
+package xyz.artsna.toolswap.bukkit.handlers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -8,6 +8,9 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.artsna.toolswap.api.events.PlayerSwapToolEvent;
+import xyz.artsna.toolswap.bukkit.data.config.Config;
+import xyz.artsna.toolswap.bukkit.ToolSwapPlugin;
+import xyz.artsna.toolswap.bukkit.data.constraints.Tools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,8 +73,14 @@ public class SwapHandler {
 
         if(tools.isEmpty()) return null;
 
-        // Sort the tools based on the specified priority (silk touch > fortune)
-        if (preferSilk) {
+        // Sort the tools based on the material type
+        tools.sort((item1, item2) -> Tools.compare(type, item1, item2));
+
+        // Sort the tools based on the efficiency enchantment
+        tools.sort((item1, item2) -> Integer.compare(item2.getEnchantmentLevel(Enchantment.EFFICIENCY), item1.getEnchantmentLevel(Enchantment.EFFICIENCY)));
+
+        // Sort the tools if they have the silk touch enchantment and if the prefer silk is enabled
+        if (preferSilk)
             tools.sort((item1, item2) -> {
                 if(item1.containsEnchantment(Enchantment.SILK_TOUCH))
                     return -1;
@@ -80,20 +89,6 @@ public class SwapHandler {
                 else
                     return 0;
             });
-        } else {
-            tools.sort((item1, item2) -> Integer.compare(item2.getEnchantmentLevel(Enchantment.FORTUNE), item1.getEnchantmentLevel(Enchantment.FORTUNE)));
-        }
-
-        // Sort the tools based on the material type
-        tools.sort((item1, item2) -> {
-            if(Tools.compareHigher(type, item1, item2))
-                return -1;
-            else if(Tools.compareHigher(type, item2, item1))
-                return 1;
-            else
-                return 0;
-        });
-
         // return the first tool found (which should be the one with the highest priority)
         return tools.getFirst();
     }

@@ -18,6 +18,12 @@
 </ul>
 <p>NOTE: Permissions are disabled by default, see the "config.yml" file to enable permissions</p>
 
+<h2>Features</h2>
+<ul>
+    <li>Automatic locale messages and UI based on client language</li>
+    <li>Prefer the silk tools system. If disabled, search for the highest efficiency tool in your inventory, sorted by tool type.</li>
+</ul>
+
 <h2>Images</h2>
 <img src="https://raw.githubusercontent.com/ArtSna/ToolSwap/refs/heads/main/docs/imgs/ToolSwap%20-%20Gif%201.gif" />
 <img src="https://raw.githubusercontent.com/ArtSna/ToolSwap/refs/heads/main/docs/imgs/ToolSwap%20-%20Gif%202.gif" />

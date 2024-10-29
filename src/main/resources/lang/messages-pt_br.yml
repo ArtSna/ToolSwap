@@ -1,0 +1,27 @@
+errors:
+  profile-error: "&cPor favor, entre no servidor novamente e tente novamente."
+  no-permission-feature: "&cVocê não tem permissão para usar este recurso."
+views:
+  settings:
+    title: "Configurações de Troca de Ferramentas"
+    buttons:
+      tool-swap-toggle:
+        display-name: "&fAlternar Troca de Ferramentas"
+        lore:
+          - "&7Status: %status%"
+        status:
+          enabled: "&aHabilitado"
+          disabled: "&cDesabilitado"
+        actions:
+          enabled: "&aTroca de Ferramentas agora está habilitada."
+          disabled: "&cTroca de Ferramentas agora está desabilitada."
+      prefer-silk-toggle:
+        display-name: "&fPreferir Toque Suave"
+        lore:
+          - "&7Status: %status%"
+        status:
+          enabled: "&aHabilitado"
+          disabled: "&cDesabilitado"
+        actions:
+          enabled: "&aConfigurações de Preferir Ferramentas de Seda agora estão habilitadas."
+          disabled: "&cConfigurações de Preferir Ferramentas de Seda agora estão desabilitadas."

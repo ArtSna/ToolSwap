@@ -16,7 +16,7 @@ public class CommandManager {
 		this.plugin = plugin;
 	}
 	
-	public void registerCommands() {
+	public void configure() {
 		long time = System.currentTimeMillis();
 		Bukkit.getConsoleSender().sendMessage(NamedTextColor.AQUA + "[" + plugin.getName() + "] Starting commands registration system...");
 		Reflections ref = new Reflections("xyz.artsna");

@@ -20,6 +20,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.NumberConversions;
 import org.jetbrains.annotations.NotNull;
+import xyz.artsna.toolswap.core.exceptions.DatabaseException;
 
 public class YamlFile extends YamlConfiguration {
 
@@ -41,8 +42,6 @@ public class YamlFile extends YamlConfiguration {
 			if(createIfNotExists && !file.exists()) {
 				file.getParentFile().mkdirs();
 				file.createNewFile();
-				
-				System.out.println("creating new file '" + file.getPath() + "'");
 			}
 			
 			if(file.exists())
@@ -50,6 +49,25 @@ public class YamlFile extends YamlConfiguration {
 		} catch (IOException | InvalidConfigurationException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public YamlFile(@NotNull String fileName) {
+		if (fileName.contains("/")) {
+			File directory = new File(fileName.substring(0, fileName.lastIndexOf('/')));
+			directory.mkdirs();
+		}
+		file = new File(fileName);
+
+		try {
+			if(!file.exists()){
+				file.createNewFile();
+			}
+
+			load(file);
+		} catch (IOException | InvalidConfigurationException e) {
+			throw new DatabaseException(e);
+		}
+
 	}
 
 	public String getFilePath() {
