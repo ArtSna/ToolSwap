@@ -4,7 +4,7 @@
 
 <h2>Installing & Upgrading</h2>
 <ol>
-  <li><a href="https://github.com/ArthSena/ToolSwap/releases/download/v1.0-SNAPSHOT/ToolSwap-Plugin-1.0-SNAPSHOT.jar">Download</a> ToolSwap-Plugin-1.0-SNAPSHOT.jar</li>
+  <li><a href="https://github.com/ArthSena/ToolSwap/releases/download/v1.2-SNAPSHOT/ToolSwap-Plugin-1.2-SNAPSHOT.jar">Download</a> ToolSwap-Plugin-1.2-SNAPSHOT.jar</li>
   <li>Drag the file into your "server/plugins" folder <em>&ndash; replace the file when upgrading.</em></li>
   <li>Reload the server.</li>
 </ol>
